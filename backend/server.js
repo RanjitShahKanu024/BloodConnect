@@ -56,6 +56,16 @@ app.use(
   })
 );
 
+// CRITICAL FIX: Handle OPTIONS/preflight requests BEFORE auth middleware
+app.options("*", (req, res) => {
+  console.log("OPTIONS/preflight request received for:", req.url);
+  res.header("Access-Control-Allow-Origin", req.headers.origin || "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.status(200).end();
+});
+
 app.use(express.json());
 
 // ------------------------
