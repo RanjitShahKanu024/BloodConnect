@@ -2,8 +2,7 @@
 
 import axios from "axios";
 
-const API_URL = "http://localhost:5000/api/donors";
-
+const API_URL = process.env.REACT_APP_API_URL;
 // Helper to create headers
 const createAuthHeaders = (token) => ({
   headers: { Authorization: `Bearer ${token}` },
