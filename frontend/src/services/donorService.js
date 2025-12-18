@@ -3,7 +3,6 @@
 import axios from "axios";
 
 const API_URL =
-  process.env.REACT_APP_API_URL ||
   "https://blood-connect-tuev-pcf5x8lwg-ranjitshahkanu024s-projects.vercel.app/api/donors";
 
 // Helper to create headers
